@@ -1,0 +1,29 @@
+1) Python 개요
+
+-네덜란드인 귀도 반 로섬(Guido van Rossum)이 발표한 범용프로그램 언어.
+-순수한 프로그램 언어 기능 이외에 다른 언어로 만든 모듈들을 연결하는 접착언어(glue language) 기능 포함
+
+2)  Python 특징 및 활용
+
+ -직관적이고 배우기 쉽다.
+ -다양한 라이브러리 제공 ( Numpy, Pandas, Matplotlib, PyQt, …. )
+ -현재 가장 인기 있는 프로그램 언어 ( 구글,아마존,유튜브,네이버,카카오등)
+
+ -빅데이터 및 데이터 분석 프로그래밍
+ -GUI 프로그래밍
+ -DB 연동 프로그래밍
+ -시스템 유틸리티
+ -수치연산 통계처리
+ -네트워크 및 인터넷 프로그래밍
+ -네트워크 장비 제어
+
+
+3) Python 개발환경 구축 방법 3가지
+
+  가.  Python 프로그램 설치후 PyCharm,Eclipse IDE 사용 
+      http://python.org , http://www.jetbrains.com
+  나.  Python  배포판:  conda 설치
+      https://www.anaconda.com/distribution
+      
+  다.  구글 코랩 ( 구글 colaboratory 서비스 )
+      http://colab.research.google.com
