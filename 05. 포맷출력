@@ -1,0 +1,123 @@
+1.문법 1: 위치값 이용
+
+  변수명 =  “포맷 문자열 … {0} {1} …”.format( 값1,값2,… )
+
+2. 문법 2:  name(key) 이용
+
+  변수명 =  “포맷 문자열 … {key} {key2} …”.format( key=값1, key2=값2,… )
+
+3. 문법 3:  item 이용
+
+  변수명 =  “포맷 문자열 … {0[0]} {0[1]} …”.format( 리스트|튜플)
+
+4. 문법 4:  unpacking argument sequence
+
+  변수명 =  “포맷 문자열 … {0} {1} …”.format( *’문자열|리스트’)
+
+5. 문법 5:  unpacking argument sequence
+
+  변수명 =  “포맷 문자열 … {key} {key2} …”.format( **dict타입)
+
+6. 문법 6:  수치 데이터 표현
+
+  변수명 =  “포맷 문자열 … {0:f} {0:d}{0:.4f} …”.format( 정수|실수)
+
+7. 문법 7:  정렬 ( 왼쪽,가운데,오른쪽) 
+
+  변수명 =  “포맷 문자열 … {0:>10} {0:<10}{0:^10} …”.format( ‘hi’)
+
+
+# 1. 위치값으로 접근
+mesg = "이름:{}".format('홍길동')
+print(mesg)
+
+mesg = '이름:{0}'.format('홍길동')
+print(mesg)
+
+mesg = '이름:{0:5s}, 나이:{1}'.format('홍길동',20)
+print(mesg)
+
+# arguments' indices can be repeated
+mesg = '이름:{0}, 나이:{1} and 주소:{0}'.format('Hello',100 )
+print(mesg)
+
+# unpacking argument sequence
+mesg = '{0}:{1}:{2}'.format(*'홍길동')
+print(mesg)  # 홍:길:동
+
+mesg = '{0}:{1}:{2}'.format(*['홍길동', '이순신', '강감찬'])
+print(mesg) # 홍길동:이순신:강감찬
+
+# 2. key 로 접근
+mesg = '이름: {username}, 나이: {age}'.format(username='홍길동', age=20)
+print(mesg)
+
+# 혼합 가능
+mesg = '이름: {0}, 나이: {age}'.format('홍길동', age=20)
+print(mesg)
+
+# 3. item으로 접근 ==> set 불가
+coord = (3, 5)  # 튜플
+mesg = 'X: {0[0]};  Y: {0[1]}'.format(coord)
+print(mesg)
+
+coord2 = [3, 5]  # list
+mesg2 = 'X: {0[0]};  Y: {0[1]}'.format(coord2)
+print(mesg2)
+
+
+
+# 수치 데이터 표현
+mesg = '{0:f}'.format(123456789)
+print(mesg) #123456789.000000
+
+mesg = '{0:f},{0:d}'.format(123456789)
+print(mesg)  # 123456789.000000,123456789
+
+mesg = '{0:.4f},{0:11d}'.format(123456789)
+print(mesg)  #123456789.0000,  123456789
+
+mesg = '{0:.3f},{0:.9f}'.format(123.4567)
+print(mesg)  #123.457,123.456700000
+
+mesg = '{0:,}'.format(123456789)
+print(mesg)  # 123,456,789
+
+mesg = '{0:+f},{0:-f}'.format(123456789)
+print(mesg) #+123456789.000000,123456789.000000
+
+mesg = '{0:+f},{1:-f}'.format(123456789,-98765431)
+print(mesg) # +123456789.000000,-98765431.000000
+
+mesg = "int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42)
+print(mesg) #int: 42;  hex: 2a;  oct: 52;  bin: 101010
+
+
+
+# 길이 및 정렬
+# 10자리 오른쪽 정렬
+mesg = "{0:>10}".format("hi")
+print(mesg)
+
+# 10자리 왼쪽 정렬
+mesg = "{0:<10}".format("hi")
+print(mesg)
+
+# 10자리 가운데 정렬
+mesg = "{0:^10}".format("hi")
+print(mesg)
+
+
+# 소수점 표현
+mesg = "{0:.4f}".format(3.254789)
+print(mesg)
+
+mesg = "{0:10.4f}".format(3.254789)
+print(mesg)
+
+# 공배 채우기
+mesg = "{0:*^10}".format("hi")
+print(mesg)
+
+
+
