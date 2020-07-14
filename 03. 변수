@@ -1,0 +1,52 @@
+1.목적 및 특징:
+   데이터 저장.
+   모든 변수는 참조형 변수.
+
+2.문법:
+   1) 변수명 = 값
+   2) 변수명=변수명2=변수명3=값
+   3) 변수명,변수명2,변수명3 = 값, 값2, 값3
+
+
+# 변수 사용
+num = 4;
+num2 = num
+print(num, id(num)) # 4 140712936916736
+print(num2, id(num2)) # 4 140712936916736
+num2 = 5
+print(num, id(num)) # 4 140712936916736
+print(num2, id(num2)) # 5 140712936916768
+
+num = [10,20,30]
+num2 = num
+print(num, id(num)) # [10, 20, 30] 2045165854976
+print(num2, id(num2)) # [10, 20, 30] 2045165854976
+num2[0] = 5
+print(num, id(num)) # [5, 20, 30] 2045165854976
+print(num2, id(num2)) # [5, 20, 30] 2045165854976
+
+
+# 동시에 변수 할당1
+a=b=c=1
+b=100
+print(a,b,c) # 1 100 1
+
+# 동시에 변수 할당2 ==> list, dict등
+a=b=c=[100,200]
+b=[1,2,3]
+print(a,b,c) # [100, 200] [1, 2, 3] [100, 200]
+
+
+# 동시에 여러 변수에 값 할당 ==> 반드시 갯수가 일치해야 된다.
+name, age, address = "홍길동",20,"서울"
+print(name,age,address)
+
+(name, age, address) = ("홍길동",20,"서울")
+print(name,age,address)
+
+[name, age, address] = ["홍길동",20,"서울"]
+print(name,age,address)
+
+# dummy variable ==> _(underscore) 이용
+a, b, _ = 10, 20, 30
+print(a, b)
