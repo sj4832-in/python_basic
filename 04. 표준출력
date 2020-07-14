@@ -1,0 +1,22 @@
+1. 표준출력
+ - 모니터에 출력하는 것을 의미한다.
+ 
+ # 콘솔 출력
+help(print)
+
+print("Hello")
+print(100,200)  # 공백으로 자동 구분
+print(300)
+
+print(9,8 , sep=",")
+print(300)
+
+print(9,8 , sep="," , end=" ") # 9,8 300
+print(300)
+
+print(9,8 , sep="," , end=",") # 9,8,300
+print(300)
+
+print(1,2 , sep="," , end="\n\t")
+print(300)
+
