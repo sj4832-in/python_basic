@@ -1,0 +1,35 @@
+
+
+# 1. 산술 연산자
+a = 10
+b = 3
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)  #3.3333333333333335
+print(a % b)   # Modulus
+print(a//b)  # Floor Division 3  ,  소수점 버림
+print(a**b)  # square
+
+#PEP8
+print(a*b + b)
+
+# 몫과 나머지를 tuple로 반환
+result = divmod(10, 3)
+print(result)
+
+# 2. 대입  연산자
+n = 10
+n2 = 4
+n3 = 10
+n += n2
+print(n,n2)
+n -= n2
+print(n,n2)
+n *= n2
+print(n,n2)
+n /= n2
+print(n,n2)
+n //= n2
+print(n,n2)
