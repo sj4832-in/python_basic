@@ -1,0 +1,24 @@
+
+
+# 비교 연산자
+k = 10
+k2 = 5
+print( k == k2 )
+print( k != k2 )
+print( k > k2 )
+print( k >= k2 )
+print( k < k2 )
+print( k <= k2 )
+
+# None 비교
+xyz = None
+print( xyz is None ) 
+print( "xyz" is not None ) 
+
+
+x = 3.141
+if (3.14 < x) and (x < 3.142):
+    print("3.141")
+
+if 3.14 < x < 3.142:  # 가능
+    print("3.141")
