@@ -1,0 +1,57 @@
+
+
+# 논리 연산자의 논리식
+print(True and True)
+print(True and False)
+print(False and True)
+print(False and False)
+print()
+print(True or True)
+print(True or False)
+print(False or True)
+print(False or False)
+print()
+print(not True)
+print(not False)
+
+
+
+ # 논리 연산자 활용
+
+# bool 함수
+print()
+print(bool(0))
+print(bool(''))
+print(bool(None))
+print(bool([]))
+print(bool(()))
+print(bool({}))
+print()
+print(bool(1))
+print(bool('hello'))
+print(bool(3.14))
+print(bool([1,2,3]))
+print(bool((1,2,3)))
+print(bool({1,2,3}))
+
+
+# 일반 데이터의 논리값 적용
+print("공백문자:", not "" )
+print("0 문자:", not 0 )
+print("None:", not None )
+print("[]:", not [] )
+print("():", not () )
+print("{}:", not {} )
+print()
+print("일반문자:", not "Hello" )
+print("10 문자:", not 10 )
+
+# 일반 데이터의 논리값 적용2
+# && : 좌객체가 참이면 우객체 반환, 좌객체가 거짓이면 좌객체 반환
+print( "123" and 0)  # 0
+print( 0 and 123)  # 0
+
+# || : 좌객체가 참이면 좌객체 반환, 좌객체가 거짓이면 우객체 반환
+print( "123" or 0)  # 123
+print( 0 or 123) # 123
+
