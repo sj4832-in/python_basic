@@ -1,0 +1,55 @@
+# parameter default
+
+def aaa(n, n2):
+    print(n, n2)
+
+
+aaa(10, 20)  # 순서로 매칭
+aaa(n2=10, n=20)  # 변수명 매칭
+
+# aaa(10) #error
+
+# 1) default 파라미터
+
+def aaa2(n, n2=100):
+    print(n, n2)
+
+aaa2(10, 20)
+aaa2(10)
+
+# 2) default 는 함수 호출이 아닌 함수정의시 생성된다.(중요)
+
+def xxx(arg, result=[]):
+    result.append(arg)
+    print(result)
+
+xxx(10) # [10
+xxx(20) # [10,20]  함수 호출이 아닌 함수정의시 생성된다
+
+def xxx(arg):
+    result = []
+    result.append(arg)
+    print(result)
+
+xxx(10) # [10
+xxx(20) # [20]
+################################################################################
+
+# named parameter ( named tuple 형태 )
+
+def report(name, age, score):
+    print(name, score,age)
+
+report(age=10, name="Kim", score=80)
+
+
+
+
+def report2(name, age, score=100):
+    print(name, score,age)
+
+report2(age=10, name="Kim")
+
+
+
+
