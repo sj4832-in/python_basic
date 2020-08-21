@@ -1,0 +1,59 @@
+
+#help(str)
+import  builtins
+# 1. 문자열 함수
+s = "sequence"
+print(builtins.len)
+print(builtins)
+print("길이:", len(s)) # 8
+print("거꾸로1:", s[::-1]) # ecneuqes , reversed() 사용하면 반복문 필수
+print("거꾸로2:", ''.join(reversed(s))) # ecneuqes
+
+print("포함횟수:", s.count('e')) # 3
+help(s.strip)
+print()
+print("검색위치1:", s.find('e')) # 1
+print("검색위치2:", s.find('e', 2)) # 4
+print("검색위치3:", s.rfind('e')) # 7
+print()
+print('첫 글자 유무 : ', s.startswith('s'), s.startswith('a')) # True False
+print("소문자로:", "HeLLo".lower()) # hello
+print("대문자로:", "HeLLo".upper()) # HELLO
+print("swap 문자로:", "HeLLo".swapcase()) # hEllO
+print("    HeLLo    ".lstrip()) #
+print("HHeLLH".lstrip("H")) # eLLH
+print(len("    HeLLo    ".lstrip())) # 9
+print("    HeLLo    ".rstrip()) #
+print("HHeLLHH".rstrip("H")) # HHeLL
+print("    HeLLo    ".strip()) #
+print("HHeLLHH".strip("H")) # eLL
+print(len("    HeLLo    ".strip())) # 5
+print()
+print("문자열 변경:", "HeLHO".replace('H', 'A')) # AeLAO
+print("구분자1:", "aaa/bbb/ccc".split("/")) # ['aaa', 'bbb', 'ccc']
+print("구분자2:", "aaa/bbb/ccc".partition("/")) # ('aaa', '/', 'bbb/ccc') ,Partition the string into three parts using the given separator.
+help("".partition)
+print("join:", ",".join(["A", "B", "C"])) # A,B,C
+print("멤버쉽 연산자1:", "H" in "Hello") # A,B,C
+print("멤버쉽 연산자2:", "X" in "Hello") # A,B,C
+print()
+print("문자냐?", "대한Heloo".isalpha())  # True
+print("문자냐?", "12".isalpha())   # False
+print("숫자냐?", "12".isnumeric())   # True
+
+# 2. 문자열 slice
+
+m = "대한민국"
+print(m[0])  #  대
+print(m[-1]) #  국
+print(m[0:3]) # 대한민
+print(m[1:]) # 한민국
+print(m[:2]) #  대한
+print(m[-3:-1]) # 한민
+print(m[0:3:2]) #대민   ,마지막에 증가값을 주면 증가값 만큼 건너뛰며 출력된다
+print(m[:])   #대한민국     ,전체를 출력한다
+print(m*2)    #대한민국대한민국  ,반복출력
+print(m[::-1])    # 국민한대 , reverse
+
+aa = "ABC"
+help(str)
