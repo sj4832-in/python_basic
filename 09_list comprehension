@@ -1,0 +1,50 @@
+# comprehension(함축) 는 하나 이상의 이터레이터로부터 파이썬의 자료구조를 만드는 방법
+# 즉,Python의 Comprehension은 한 Sequence가 다른 Sequence (Iterable Object)로부터 (변형되어) 구축될 수 있게한 기능이다.
+
+# 1. 리스트 comprehension : sequence 로부터 가공한 새로운 리스트 생성.
+# 가. [표현식 for 항목 in 순회가능]
+a = [ [x,x+1,x+2] for x in range(1,11)]
+print("리스트 comprehension1: " , a );
+
+a = [x for x in range(1,11)]
+print("리스트 comprehension1: " , a );
+
+a = [x+1 for x in range(1,11)]
+print("리스트 comprehension1: " , a );
+
+# 나. [표현식 for 항목 in 순회가능 if 조건]
+a = [x for x in range(1,11) if x%2 == 0]
+print("리스트 comprehension2: " , a );
+
+# 다. [참 if 조건 else 거짓  for 항목 in 순회가능]
+b = [n if n > 0 else 0 for n in range(1,11)]
+print(b)
+# Positive values clipped to 0
+c = [n if n < 0 else n+1 for n in range(1,11)]
+print(c)
+####################################################################
+
+'''
+  1. generator
+    - 한 번에 한 개의 항목만 생성 ( 메모리 유지 X )
+    - next() 함수 사용하여 하나씩 값을 얻는다.
+      또는 for문을 사용
+      또는 list() 사용
+    
+
+'''
+
+# 1. list comprehension  vs  tuple comprehension
+
+list_comp = [x for x in range(10)]
+tuple_comp = (x for x in range(10))
+
+print("1. list comp: ",  list_comp) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("2. tuple comp: ",  tuple_comp) # <generator object <genexpr> at 0x000001F9430D0C10>
+# print("3. tuple comp-list변환: ",  list(tuple_comp)) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("generator 값 얻기\n")
+print(next(tuple_comp))
+print(next(tuple_comp))
+print("-------------------------------------")
+for x in tuple_comp:
+    print(x)
