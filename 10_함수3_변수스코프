@@ -1,0 +1,49 @@
+# nonlocal 키워드 사용
+
+# 1) nonlocal  사용전 -에러
+def Kbs():
+      a = 1        # Kbs 함수에서 유효한 지역 변수
+      def Mbc():
+          #because the num variable is referenced before it is assigned in the innermost function
+          #가장 내부 함수에 할당되기 전에 num 변수가 참조되기 때문에
+          #즉, local a가 아직 초기화가 안됨
+          # print('Mbc에서 출력1:', a)  #UnboundLocalError 에러
+          a = 2    # Mbc 함수에서만 유효한 지역 변수
+      Mbc()
+Kbs()
+
+# 1) nonlocal  사용후 -에러 해결1
+def Kbs():
+      a = 1        # Kbs 함수에서 유효한 지역 변수
+      def Mbc():
+          a = 2
+          print('Mbc에서 출력2:', a)
+      Mbc()
+Kbs()
+
+# 1) nonlocal  사용후 -에러 해결2
+def Kbs():
+      a = 1        # Kbs 함수에서 유효한 지역 변수
+      def Mbc():
+          #a는 Mbc 함수의 부모함수인, Kbs 함수의 a가 됨
+          nonlocal a
+          print('Mbc에서 출력3:', a)
+          a = 2
+      Mbc()
+Kbs()
+
+# 2) global 키워드
+a = 1
+def Kbs():
+      a = 2
+      def Mbc():
+          # global a  # 1 출력
+          nonlocal a   # 2 출력
+          print('Mbc에서 출력4:', a)
+          a = 3
+      Mbc()
+Kbs()
+
+#eval 함수
+print(eval('4==3'))
+print(eval('4+4'))
