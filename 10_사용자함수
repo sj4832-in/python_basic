@@ -1,0 +1,74 @@
+# 사용자 함수
+
+# 1) 인자 없고 반환값 없는 형태
+
+
+def fun1():
+    print("fun1 함수 호출")
+
+
+fun1()
+
+
+# 2) 인자 있고 반환값 없는 형태
+
+
+def fun2(n, n2) -> None:
+    print(n, n2)
+
+
+fun2(10, 20)  # 순서 매칭
+fun2(n2=10, n=20)  # 변수명 매칭
+
+# 3) 인자 없고 반환값 하나 있는 형태
+
+
+def fun3() -> str:  # 반환주석
+    print("fun3 함수 호출")
+    return "Hello"
+
+
+m = fun3()
+print(m)
+print(fun3())
+
+
+# 3) 인자 없고 반환값 여러개 있는 형태 : tuple로 반환
+# ("Hello", 10)과 동일
+
+def fun4():
+    print("fun4 함수 호출")
+    return "Hello", 10
+
+
+m, n = fun4()
+print(m, n)
+print(fun4())
+
+# 4) 인자 있고 반환값 있는 형태
+
+
+def fun5(n,n2):
+    return n+n2
+
+
+m = fun5(10, 20)
+print(m)
+print(fun5(1, 3))
+
+# 함수의 종료 목적으로  return 키워드 사용
+
+
+def even_or_odd(n):
+    if n % 2 == 0:
+        print("even")
+        return
+    print("odd")
+
+
+
+
+# 현재 파일의 객체 목록 보기
+print(globals())
+
+
