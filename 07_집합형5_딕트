@@ -1,0 +1,188 @@
+# 5 . 딕트 ( dict ) : immutable한 키와 mutable한 값으로 구성
+
+#help(dict)
+
+m0 = {}
+print(type(m0))  # <class 'dict'>
+m1 = {'name':'홍길동','age':20}
+m2 = dict(name='홍길동', age = 20)
+m3 = dict()  # dict 생성자 이용
+m4 = dict([['a','b'],['x','y'],['k','k2']]) # 리스트안의 리스트
+m5 = dict([['a','b'],['x','y'],['k','k2']]) # 리스트안의 리스트
+m6 = dict([ ('a','b'),('x','y'),('k','k2')]) #  리스트안의 튜플
+m7 = dict(['ab','xy','kz'])      #  두 글자로 된 리스트
+m8 = dict( ('ab','xy','kz') )      # 두 글자로 된 튜플
+print(m1)
+print(m2)
+print(m3)
+print(m4)
+print(m5)
+print(m6)
+print(m7)
+print(m8)
+
+print()
+
+#  dict 함수
+# 1) dict 추가
+coffee = {'espresso':'에스프레소', 'latte':'라떼'}
+print(coffee)
+coffee['lungo'] = '룽고'    #요소를 추가
+print("요소추가:", coffee)
+
+# 2) dict 변경 ==> 내부적으로 union으로 처리된다.
+coffee['latte'] = '라떼2'
+print("요소변경:",coffee)
+
+# 3) dict 삭제 ==> del
+del coffee['lungo']        #요소를 삭제
+print("요소삭제:",coffee)
+coffee.clear()            #요소 전체 삭제
+print("요소전체삭제:",coffee)
+
+# 4) 병합 또는 한꺼번에 수정: update
+x = {'name':'aaa','age':20}
+y = {'address':'seoul'}
+x.update(y)
+print("병합:",x)
+x.update({'name':'aaa2','age':202})
+print("한꺼번에 수정:",x)
+
+#  dict 함수
+coffee = {'espresso': '에스프레소', 'latte': '라떼'}
+print(coffee)
+print(len(coffee))  # 길이 출력
+print(coffee['espresso'])  # 키를 이용해 값을 조회,  없으면 에러
+
+print(coffee.get('latte'))  # key로 value 얻기
+print(coffee.get('latt2e', 'Not a Coffee'))  #  없으면 기본값 출력 , 기본값 지정안하면 None 출력
+print(coffee.keys())  # key 목록 출력
+print(coffee.values())  # value 목록 출력
+print(coffee.items())  # key, value 출력
+
+print()
+print(list(coffee.keys()))  # key를 list type으로 출력
+keys = list(coffee.keys())
+print(keys[0])
+print(list(coffee.values()))  # value를 list type으로 출력
+
+# key 존재여부 확인
+print()
+print('latte' in coffee)  # in을 이용해 자료의 유무를 판단
+print('cola' in coffee)  # 없으면 False를 반환
+
+
+# 집합형중에서 tuple만이 dict의 키가 될수 있다 ==> 불변(immutable)이기 때문에
+houses = {
+    (214.3, 154.3):'우리집',
+    (2134.3, 1544.3):'강남역'
+}
+# 5. 교집합, 차집합, 합집합
+a = {
+   'x' : 1,
+   'y' : 2,
+   'z' : 3
+}
+
+b = {
+   'w' : 10,
+   'x' : 11,
+   'y' : 2
+}
+print('Union keys:', a.keys() | b.keys())
+print('Common keys:', a.keys() & b.keys())
+print('Keys in a not in b:', a.keys() - b.keys())
+print('(key,value) pairs in common:', a.items() & b.items())
+
+# 7.  얕은 복사
+a = {'alice': [1, 2, 3], 'bob': 20, 'tony': 15, 'suzy': 30}
+b =a.copy()
+b['alice'].append(5)
+print(a, b) # {'alice': [1, 2, 3, 5], ~ }, {'alice': [1, 2, 3, 5],~}
+# 깊은 복사
+import  copy
+c = copy.deepcopy(a)
+b['alice'].append(5)
+print(a, c) # {'alice': [1, 2, 3, 5, 5], .., {'alice': [1, 2, 3, 5],
+
+# 8. dict를 읽기 쉽게 해주는 pprint
+from pprint import pprint as pp
+a = {'alice': [1, 2, 3], 'bob': 20, 'tony': 15, 'suzy': 30,"dodo": [1,3,5,7], "mario": "pitch"}
+print(pp(a))
+# {'alice': [1, 2, 3],
+#  'bob': 20,
+#  'dodo': [1, 3, 5, 7],
+#  'mario': 'pitch',
+#  'suzy': 30,
+#  'tony': 15}
+
+# 9. 두 개의 자료구조를 하나로 묶음
+a = ['a','b','c']
+b = [10,20,30,40]
+print(dict(zip(a,b)))  # {'a': 10, 'b': 20, 'c': 30}
+# 9. 정렬
+rows = [
+    {'fname': 'Brian', 'lname': 'Jones', 'uid': 1003},
+    {'fname': 'David', 'lname': 'Beazley', 'uid': 1002},
+    {'fname': 'John', 'lname': 'Cleese', 'uid': 1001},
+    {'fname': 'Big', 'lname': 'Jones', 'uid': 1004}
+]
+print("자신이 정렬전: ", rows)
+rows.sort(key=lambda s:s['uid'])
+print("자신이 정렬후: ", rows)
+
+# 9. 정렬2
+rows = [
+    {'fname': 'Brian', 'lname': 'Jones', 'uid': 1003},
+    {'fname': 'David', 'lname': 'Beazley', 'uid': 1002},
+    {'fname': 'John', 'lname': 'Cleese', 'uid': 1001},
+    {'fname': 'Big', 'lname': 'Jones', 'uid': 1004}
+]
+
+# itemgetter 및 attrgetter 이용한 정렬
+from operator import itemgetter
+
+rows_by_fname = sorted(rows, key=itemgetter('fname'))
+print("Sorted by fname:")
+print(rows_by_fname)
+rows_by_uid = sorted(rows, key=itemgetter('uid'))
+print("Sorted by uid:")
+print(rows_by_uid)
+rows_by_lfname = sorted(rows, key=itemgetter('lname','fname'))
+print("Sorted by lname,fname:")
+print(rows_by_lfname)
+
+# 10. dict comprehension
+from pprint import pprint
+
+prices = {
+   'ACME': 45.23,
+   'AAPL': 612.78,
+   'IBM': 205.55,
+   'HPQ': 37.20,
+   'FB': 10.75
+}
+
+# Make a dictionary of all prices over 200
+p1 = { key:value for key, value in prices.items() if value > 200 }
+
+print("All prices over 200")
+pprint(p1)
+
+# Make a dictionary of tech stocks
+tech_names = { 'AAPL', 'IBM', 'HPQ', 'MSFT' }
+p2 = { key:value for key,value in prices.items() if key in tech_names }
+
+print("All techs")
+pprint(p2)
+
+
+# Merging dictionaries
+fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
+dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
+
+# 1) python 3.5 이상
+fishdog = {**fish, **dog}
+print(fishdog)
+
+
