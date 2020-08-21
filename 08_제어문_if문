@@ -1,0 +1,60 @@
+# 단일 if 문1
+print("1")
+if 3==4:
+    print("2")
+    print("3")
+    print("4")
+print("5")
+print()
+# 단일 if 문2
+if 3 == 3: print("True")
+
+#  if ~ else 문
+n = int(input("정수입력"))
+if n%2==0:
+    print("짝수")
+else:
+    print("홀수")
+print("end")
+
+# 다중 if ~ else 문
+n = int(input("점수입력"))
+if n>90:
+    print("A 학점")
+elif n>80:
+        print("B 학점")
+elif n>70:
+        print("C 학점")
+else:
+    print("F 학점")
+print("end")
+
+# 중첩 if 문
+jumsu = 85
+if jumsu >= 90:
+    print('우수')
+else:
+    if jumsu >= 70:
+        print('보통')
+    else:
+        print('저조')
+print('end2')
+
+# in 리스트,튜플,문자열 연산자
+mesg = 10 in[ 1,2,3,10]  # 10이  리스트안에 있는가?
+print(mesg) # True
+
+mesg = 10 not in[ 1,2,3,10]  # 10이  리스트안에 없는가?
+print(mesg) # False
+
+# in 리스트 활용
+pocket = ['paper','card','tel']
+if 'tel' in pocket:
+    print("tel")
+else:
+    print("None")
+
+
+# pass 사용
+if True:
+    pass
