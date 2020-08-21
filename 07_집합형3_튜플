@@ -1,0 +1,101 @@
+# 3 . 튜플 ( tuple )
+#help(tuple)
+
+# 1. 동일한 코드
+t = 'a', 'b', 'c', 'd', 'e'
+t = ('a', 'b', 'c', 'd', 'e')
+
+ip_address = ('10.20.30.40', 8080)
+m = (1,2,3,4)  # 괄호는 옵션
+m2 = ()
+print(m)
+print(m2)
+
+print(m*2) # 반복출력
+
+#  튜플 함수
+
+# 1) 튜플 추가 및 삽입 , 삭제불가 , 정렬 불가
+# 2) 튜플 함수
+print("튜플 길이:" , len((1,2,3,4)))
+print("포함 갯수:" , (10,2,3,2,9,2).count(2))
+x3 = (100,200,300)
+print("특정 위치:" , x3.index(200))
+print("포함 여부1:" , 9 in (9,8,7))
+print("포함 여부2:" , 6 in (9,8,7))
+print()
+
+# 3) slice
+kk = (1,2,3,4,5)
+print("특정 값:" , kk[0])
+print("slice:" , kk[0:3])
+print("slice:" , kk[:6])
+print("slice:" , kk[3:])
+print("slice:" , kk[:])
+print()
+
+# 4) 값 출력
+kk2 = (1,2,3)
+print("특정 값 출력:" , kk2[0], kk2[1], kk2[2] )
+#kk2[0] = 100   # 값 변경 불가
+print("값 변경1:" , kk2)
+kk3 =(1,2,3,(9,8,7))
+print("값 변경2:" , kk3)
+print("특정 값 출력1:" , kk3[3][0])
+print("특정 값 출력2:" , kk3[3][2:])
+print("특정 값 출력3:" , kk3[3][:2])
+
+# 튜플 언팩킹(tuple unpacking) ==> 자바스크립트의 destructuring
+x,y,z = ("aaa","bbb","ccc")
+print("언팩킹 1", x)
+print("언팩킹 2", y)
+print("언팩킹 3", z)
+
+# 값 교환
+x = 10
+y = 20
+x,y=y,x
+print("값 교환 1 ", x)
+print("값 교환 2 ", y)
+
+# 5) list로 변환
+x = (10,20,30)
+x2 = list(x)
+print(x,x2)
+print()
+x3 = tuple(x2)
+print(x2,x3)
+print()
+
+# 6) 치환
+a = (10,20)
+print(a)
+print()
+x,y=(100,200)
+print(x,y)
+print()
+t = x,y
+print(t)  #t는 튜플형 변수가 된다
+
+# 7. 튜플 활용 ==> 함수에서 한번에 여러값 리턴 가능
+def minmax(items):
+    return max(items), min(items)
+
+max,min=minmax([1,7,4,5,99])
+print(max,min)  # 99 1
+
+# 7. 해체할당 기능
+(a, (b,(c, d))) = (4,(3,(2,1)))
+print(a)  # 4
+print(b)  # 3
+print(c)  # 2
+print(d)  # 1
+
+# 리스트도 가능
+[a, [b,[c, d]]] = [4,[3,[2,1]]]
+print(a)  # 4
+print(b)  # 3
+print(c)  # 2
+print(d)  # 1
+[a,b,c,d] = [10,20,30,[100,200]]
+print(a,b,c,d) # 10 20 30 [100, 200]
