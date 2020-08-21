@@ -1,0 +1,67 @@
+# for in 반복문만 제공됨
+#  list, dictionary, set, string, tuple, bytes ,  range 가 iterable 객체이다.
+
+# 0) 일반적인  반복
+
+for x in "Hello":
+    print(x)
+
+for x in [1,2,3]:
+    print("hello")
+
+# 1) list 반복
+for x in [10,20,30,40]:
+    print(x)
+print("end")
+print()
+for x in ['A','B','C']:
+    print(x)
+print("end")
+
+# 순서와 값 반환
+datas = ['a', 'b', 'c']
+#  enumerate() 함수는 순서와 값을 tuple로 반환해 준다.
+for t in enumerate(datas):
+    print(t)
+
+for i, d in enumerate(datas):
+    print(i, d)     # 0 a 1 b 2 c , 순서와 값이 차례대로 출력됨
+
+# 2) set 반복 ==> 순서 없이 출력
+for x in {10,20,30,40}:
+    print(x)
+print("end")
+
+# 3) tuple 반복
+for t in ('house', 'mouse', 'horse'):
+    print(t, end=' ')
+print()
+
+
+# 4) dict 반복
+soft = {'java':'웹용', 'python':'만능언어', 'oracle':'db처리'}
+for key, value in soft.items():
+    print(key + ', ' + value)
+print()
+for k in soft.keys():
+    print(k, end=' ')  #key 출력
+print()
+for v in soft.values():
+    print(v, end=' ')  #value 출력
+
+
+
+# 5) 중첩 for 문
+for n in [2, 3]:
+    print('--{}단--'.format(n))
+    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+        print('{0} * {1} = {2}'.format(n, i, n * i))
+
+print()
+li1 = [3, 4, 5]
+li2 = [2, 3]
+
+for a in li1:  # 3회 반복
+    for b in li2:  # 2회 반복
+        print(a * b, end=' ')  # 두 수를 곱한 값 출력
+
