@@ -1,0 +1,86 @@
+# 4 . 셑 ( set ) ==> immutable 값만 저장 가능하다. (매우 중요)
+#help(set)
+m = {1,2,3,1}
+m2 = set()  # {} 는 빈 dict이다.
+print(m)
+print(m2)
+
+# 여러 요소값 저장 가능하지만 mutable 값 저장 불가 (
+m3 = {10,20,"홍길동",(100,200)}
+print(m3) # {10, 20, '홍길동', (100, 200)}
+#m4 = {10,20,"홍길동",[1,2]}  # mutable 데이터인 리스트 저장 불가
+# print(m4)  # 에러
+#print(m*2) # error , 반복출력 불가
+
+#  set 함수
+# 1) set 추가 
+m = {1,2,3}
+m.add(10)
+m.add((9,8))  # tuple 만 가능, mutable 데이터인 리스트 저장 불가
+print("add:",m)
+
+# 2) set 변경 ==> 한번에 여러개 list,set,tuple 추가 기능
+m2 = {1,2}
+m2.update({3,4})
+print("update1_set:" , m2)
+m2.update([5,6,7])
+print("update2_list:" , m2)
+m2.update((9,10))
+print("update3_tuple:" , m2)
+
+# 3) set 삭제 ==> discard 와 remove
+m2 = {1,2,3,4}
+m2.discard(4)  #  If the element is not a member, do nothing.
+print(m2)
+m2.remove(3)  #  If the element is not a member, raise a KeyError.
+print(m2)
+
+# 4) set 함수
+print("set 길이:" , len({1,2,3,4,5}))
+x3 = {100,200,300}
+print("포함 여부1:" , 9 in {9,8,7})
+print("포함 여부2:" , 6 in {9,8,7})
+print()
+x3.clear()
+print(x3)
+print()
+
+# 5) 형변환
+p = {100,200,300}
+p2 = tuple(p)
+p3 = list(p)
+print("tuple로 : " , p2)
+print("list로 : " , p3)
+
+#중복자료 제거
+kkk = [1,3,4,3,1,4]
+print("중복제거 전", kkk )
+kkk2 = set(kkk)
+print("중복제거 후:" , kkk2 )
+
+# 6) set 연산자 및 함수
+
+a = {1,2,3,1}
+b = {3,4}
+print("union:" , a.union(b))
+print("intersection:" , a.intersection(b))
+print("difference: 차집합" , a.difference(b)) # 차집합:  a에는 있고 b에는 없는
+print("exclusive difference: 대칭 차집합" , a.symmetric_difference(b)) # 대칭 차집합:  한쪽에만 있는
+
+print("union2:" , a | b)
+print("intersection2:" , a&b)
+print("difference2:" , a-b)
+print("exclusive difference2:" , a^b)
+
+# Superset check
+x= {1, 2}.issuperset({1, 2, 3})  # False
+x2 = {1, 2} >= {1, 2, 3}           # False
+print(x, x2)
+# Subset check
+x = {1, 2}.issubset({1, 2, 3})  # True
+x2 = {1, 2} <= {1, 2, 3}         # True
+print(x, x2)
+# Disjoint check
+x = {1, 2}.isdisjoint({3, 4})  # True
+x2 = {1, 2}.isdisjoint({1, 4})  # False
+print(x, x2)
