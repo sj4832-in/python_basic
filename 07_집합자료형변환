@@ -1,0 +1,39 @@
+# list -> tuple,set
+a = [10,20,30]
+a2 = tuple(a)
+a3 = set(a)
+print(a)
+print(a2)
+print(a3)
+
+# set -> list, tuple
+a = {10,20,30}
+a2 = list(a)
+a3 = tuple(a)
+print(a)
+print(a2)
+print(a3)
+
+# tuple -> list, set
+a = (10,20,30)
+a2 = list(a)
+a3 = set(a)
+print(a)
+print(a2)
+print(a3)
+
+# dict -> list,set,tuple (키만 추출)
+a = {"name":"홍길동","age":100}
+a2 = list(a)
+a3 = set(a)
+a4 = tuple(a)
+print(a)
+print(a2)
+print(a3)
+print(a4)
+
+
+# str --> list , tuple
+print( list("홍길동길")) # ['홍', '길', '동', '길']
+print( tuple("홍길동길")) # ('홍', '길', '동', '길')
+print( set("홍길동길")) # {'길', '홍', '동'}
