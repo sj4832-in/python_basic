@@ -1,0 +1,47 @@
+# 일급객체
+# 1) 함수를 변수에 저장 가능
+def aaa():
+    print("Hello")
+
+print(aaa)
+bbb = aaa
+bbb()
+
+# 2) 함수를 다른 함수의 인자값으로 사용
+
+def aaa():
+    print("Hello")
+
+def xxx(f):
+    print("xxx 호출")
+    f()
+
+xxx(aaa)
+
+# 3) 함수를 리터값으로 사용
+
+def aaa():
+    print("Hello")
+
+def xxx():
+    print("xxx 호출")
+    return aaa
+
+m = xxx()
+m()
+
+
+def fun1():
+    print("fun 호출")
+
+
+def fun2(f):
+    print("fun2 호출")
+    return f
+
+
+f1 = fun1
+f1()
+f2 = fun2(fun1)
+f2()
+
