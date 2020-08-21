@@ -1,0 +1,179 @@
+# 2 . 리스트
+
+string_list = ['abc', 'defghi']
+int_list = [1, 2, 3, 4]
+empty_list = []
+mixed_list = [1, 'abc', True, 2.34, None]
+nested_list = [['a', 'b', 'c'], [1, 2, 3]]
+
+print(int_list)
+print(empty_list)
+print(int_list*2) # 반복출력
+
+
+
+ #  리스트 함수
+# 1) 리스트 추가
+m = [1,2,3]
+m.append(10)
+m.append([9,8])
+m.append((100,200))
+print("append:",m)
+
+# 삽입
+m.insert(0,100)
+m.insert(0,[4,5,6])
+print("insert:",m)
+
+# 병합 ( extend 또는  + )
+x = [1,2,3]
+x.extend([10])
+x.extend([9,8])
+x.extend("XYZ")
+x.extend((7,))  # tuple
+print("extend:",x)
+
+x2 = [1,2,3]
+x2 += [4,5]
+print("+ 로 병합:" , x2)
+print()
+
+# 2) 리스트 함수
+print("리스트 길이:" , len([1,2,3,4]))
+print("포함 갯수:" , [10,2,3,2,9,2].count(2))
+x3 = [100,200,300]
+print("특정 위치:" , x3.index(200))
+print("포함 여부1:" , 9 in [9,8,7])
+print("포함 여부2:" , 6 in [9,8,7])
+x = [1,2,3]
+x.reverse()
+print("거꾸로(자신이 변경):" , x)  # [3, 2, 1]
+print()
+y = reversed(x)  # 뒤집힌 새로운 객체 반환
+print("거꾸로(새로운 객체반환):", x, list(y))  # [3, 2, 1] [1, 2, 3]
+
+# 3) slice
+kk = [1,2,3,4,5]
+print("특정 값:" , kk[0]) # 1
+print("맨뒤 값:" , kk[-1]) # 5
+print("slice:" , kk[0:3]) # [1, 2, 3]
+print("slice:" , kk[:6]) # [1, 2, 3, 4, 5]
+print("slice:" , kk[3:]) # [4, 5]
+print("slice:" , kk[:]) # [1, 2, 3, 4, 5]
+print("slice(배수):" , kk[::2]) # [1, 3, 5]
+print("slice(reverse):" , kk[::-1]) # [5, 4, 3, 2, 1]
+print()
+
+# 4) 값 출력
+kk2 = [1,2,3]
+kk2[0] = 100   # 값 변경 가능
+print("값 변경1:" , kk2)
+kk3 =[1,2,3,[9,8,7]]
+kk3[3][0]=900
+print("값 변경2:" , kk3)
+print("특정 값 출력1:" , kk3[3][0])
+print("특정 값 출력2:" , kk3[3][2:])
+print("특정 값 출력3:" , kk3[3][:2])
+
+# 5) 값 삭제
+kk4 = [1,2,3,4]
+kk4.pop()  # pop(-1) 과 동일
+kk4.pop(0)  
+print("pop 함수",kk4)
+print()
+kk4.remove(2)  # 값에 의한 삭제
+print(kk4)
+del kk4[0]  # 위치에 의한 삭제
+print(kk4)
+kk4.clear()
+print("kk4:" , kk4)
+
+# 6) 정렬
+xxx = [88,2,5,3,9,7,10]
+xxx.sort()
+print("오름차순 정렬:",  xxx)
+xxx.sort(reverse=True)       #역순으로 정렬
+print("내림차순 정렬:",  xxx)
+
+# 6) 정렬2
+yyy = ['123','9999', '43']
+yyy.sort()
+print("기본 문자열 정렬:",  yyy)
+yyy.sort(key=int)
+print("문자형을 수치형으로 변환하여  정렬:",  yyy)  #문자열이지만 숫자형으로 정렬
+zz = ['홍길동','김홍', '박혁거세']
+zz.sort(key=len , reverse=True)
+print(" 길이에 따라서  정렬:",  zz)  # ['김', '홍길동', '박혁거세']
+
+zz.sort(key=lambda x:x[-1]) # 맨 끝글자 이용한 정렬
+print(" 사용자 람다 함수 정렬:", zz) # ['홍길동', '박혁거세', '김홍']
+
+
+# 6) 정렬3 ==> 정렬 결과  복사본 반환
+zzz = [3,1,2]
+zzz2 = sorted(zzz)
+zzz3 = sorted(zzz,reverse=True)
+print("정렬전:" ,  zzz )
+print("정렬후 1:" ,  zzz2 )
+print("정렬후 2:" ,  zzz3 )
+print("원본 정렬후:" ,  zzz)
+
+###########################
+from operator import itemgetter
+
+xyz =[('A',10,30),('B',10,30),('A',20,20),('A',20,40)]
+#help(sorted)
+result = sorted(xyz, key=itemgetter(0,1,2))
+print("itemgetter>> ", result)
+
+
+##############################
+# 7) 참조형
+x = [10,20,30,40,50,60]
+x2 = x
+print("변경전 x값:" , x , id(x))
+print("변경전 x2값:" , x2 , id(x2))
+x[0]=9
+print("변경후 x값:" , x)
+print("변경후 x2값:" , x2)
+# x[2:] = 100   # 슬라이스 변경 불가 , numpy는 가능
+print()
+# 8) 깊은 복사방법 :  copy(),  list(),  [:]
+x = [9,8,7]
+x2 = x.copy()
+x3 = list(x)
+x4 = x[:]
+x[1]=199
+print("원본 " , x)
+print("복사본1 " , x2)
+print("복사본2 " , x3)
+print("복사본3 " , x4)
+
+# 8) 필터
+#help(filter)
+x = [1,2,3,4,5]
+data = filter( lambda n:n%2==0 , x)
+print(list(data))  # [2, 4]
+
+x = ["홍","정조","순조","세종대왕","강감찬"]
+data = filter( lambda n: len(n)== 2 , x)
+print(list(data)) # ['정조', '순조']
+
+# 9) empty 확인방법 ==> not 연산자 이용
+x = []
+if not x:
+    print("empty list")
+print()
+
+# 10) 반복횟수 얻기 ==> enumerate() 함수 이용
+x = [9,8,7,6]
+for i, v in enumerate(x):
+    print(i, v)
+print()
+
+
+#help(range)
+print(tuple(range(0,4)))
+print(list(range(0,4)))
+
+print([1,2,3,4][0])
