@@ -1,0 +1,22 @@
+# break, continue
+
+a = 0
+while a < 10:
+    a += 1
+    if a == 5: continue   #while문으로 수행 이동
+    if a == 7: break      #반복문 강제 종료
+    print(a)
+else:   # break 확인 => 즉, break가 호출되지 않음을 확인할 수 있다.
+    print("정상종료")
+print("end")
+
+datas = [1, 2, 3, 4, 5]
+
+for i in datas:
+    if i == 3: continue
+    if i == 4: break
+    print(i, end=' ')
+else:
+    print("정상종료")
+print("end")
+
