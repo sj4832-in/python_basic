@@ -1,0 +1,99 @@
+# parameter packing - tuple로 처리
+
+# 대입연산자 unpacking처리 예
+# 갯수가 일치하지 않은 경우...
+n,*n2 = [10,20,30]
+print(n,n2)
+
+print('\n가변 인수 처리')
+
+def func1(*lunch):
+    print(lunch)
+    for i in lunch:
+        print('음식:' + i)
+
+func1('비빕밥', '김밥', '볶음밥')
+
+
+print()
+def Func2(a, *ar):
+    print(a)
+    print(ar)
+    for i in ar:
+        print('배고플 때:' + i)
+
+Func2('비빕밥', '김밥', '볶음밥')
+print()
+Func2('짜장', '짬뽕')
+
+print()
+def Func2(a,b, *ar):
+    print(a,b,ar)
+    for i in ar:
+        print('배고플 때:' + i)
+
+Func2('비빕밥', '김밥', '볶음밥')
+print()
+Func2('짜장', '짬뽕')
+
+
+def a(n,*n2):
+    x,y = n2
+    print(n,x,y)
+
+a(10,20,30)
+
+print([10], type([10]))
+print({10}, type({10}))
+print((10), type((10)) , type((10,)))
+
+# dict 자료는 - **  사용
+def func3(**z):
+    print(z)  # {'name': '홍길동', 'age': 20}
+
+func3(name='홍길동', age=20)
+# func3({'name':'홍길동', 'age': 20}) #error
+
+
+def func4(x, y, **z):
+    print(x, y, z)  # 10 20 {'name': '홍길동', 'age': 20}
+
+func4(10, 20, name='홍길동', age=20)
+# func4(10,20, {'name':'홍길동', 'age': 20}) #error
+func4(10,20,30,40,50)  # 10 20 (30, 40, 50) {}
+
+
+# *와 ** 혼합은 반드시 순서대로 지정
+def func4(x,y,*z,**k):
+    print(x,y,z,k)
+
+func4(9, 8, 7, 6, name="홍길동", age=20 )  # 9 8 (7, 6) {'name': '홍길동', 'age': 20}
+
+
+#################################################################################
+
+
+
+# 집합자료 경우 unpacking - 값에 *
+
+
+def fun1(x, y, z):
+    print(x, y, z)
+
+#fun1([10, 20, 30])  #error
+fun1(*[10, 20, 30])
+fun1(*{100,200,300})
+fun1(*(1000,2000,3000))
+
+def fun2(x, y, *z):
+    print(x, y, z)   #  10 20 (30, 40)
+
+fun2(*[10, 20, 30, 40])
+
+
+fun2(*{100,200,300})
+fun2(*(1000,2000,3000,5,4))
+
+
+
+
