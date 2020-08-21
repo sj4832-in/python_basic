@@ -1,0 +1,70 @@
+# 람다 함수( lambda ) - 단일 표현식만 가능
+
+# 1) 인자 없고 반환값 없는 형태
+
+
+def fun1():
+    print("fun1 함수 호출")
+fun1()
+
+fun1 = lambda: print("fun1 함수 호출")
+fun1()
+
+
+# 2) 인자있고 리턴값 없는 경우
+def fun2(n, n2):
+    print(n, n2)
+fun2(10, 20)  # 순서 매칭
+fun2(n2=10, n=20)  # 변수명 매칭
+
+
+fun2 = lambda n,n2: print(n, n2)
+fun2(10,20)
+
+# 3) 인자없고 리턴값 있는 경우
+
+def fun3():
+    return "Hello"
+
+m = fun3()
+print(m)
+print(fun3())
+
+fun3 = lambda : "Hello"
+print(fun3())
+
+#  4)  인자있고 리턴값 있는 경우
+def fun4(n, n2):
+    return n+n2
+
+m = fun4(10, 20)
+print(m)
+print(fun4(1, 3))
+
+
+fun4 = lambda n, n2: n+n2
+print(fun4(1, 3))
+
+# 4) 초기값 지정 가능
+def fun5(n, n2=100):
+    return n+n2
+print(fun5(10))
+
+fun5 = lambda n, n2=100: n+n2
+print(fun5(10))
+
+
+# 5) 가변 인수 지정
+def fun6(n, *n2 , **n3):
+    print(n, n2, n3)
+fun6(10, 20, 30, k=9, k2=9)
+
+fun6 = lambda n, *n2, **n3: print(n, n2, n3)
+fun6(10, 20, 30, k=9, k2=9)
+
+ # pass : 함수 구현을 delay
+def xxx():
+    pass
+
+xxx()
+
